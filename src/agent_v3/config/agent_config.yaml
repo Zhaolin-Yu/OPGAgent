@@ -1,0 +1,30 @@
+# Agent_v3 config file
+
+# ====================
+# LLM config
+# ====================
+llm:
+  provider: openai  # qwen or openai
+  model: gpt-5.4   # multimodal-capable model
+  temperature: 0.7
+  max_tokens: 8192
+
+# ====================
+# ReAct config
+# ====================
+react:
+  max_iterations: 10  # max iterations
+  stop_on_error: false  # whether to stop on error
+
+# ====================
+# Tools config
+# ====================
+tools:
+  config_path: "src/agent_v3/config/tools_config.yaml"  # path to tools config file
+
+# ====================
+# Memory config
+# ====================
+memory:
+  enable_cache: true  # whether to enable cache
+  cache_ttl: 3600  # cache TTL (seconds)
