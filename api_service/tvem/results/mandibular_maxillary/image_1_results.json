@@ -1,0 +1,45 @@
+{
+  "image": "image_1.png",
+  "timestamp": "2026-01-21T02:58:54.791131",
+  "confidence_threshold": 0.3,
+  "total_detections": 2,
+  "detections": [
+    {
+      "id": 2,
+      "category_id": 0,
+      "category_name": "Mandibular Canal",
+      "confidence": 0.8559808135032654,
+      "bbox": {
+        "x": 303.9844055175781,
+        "y": 292.0041809082031,
+        "width": 492.5218811035156,
+        "height": 467.2316589355469
+      },
+      "mask_area": 23239,
+      "mask_shape": [
+        1024,
+        2339
+      ]
+    },
+    {
+      "id": 1,
+      "category_id": 0,
+      "category_name": "Mandibular Canal",
+      "confidence": 0.8456785678863525,
+      "bbox": {
+        "x": 1447.95654296875,
+        "y": 286.6553039550781,
+        "width": 482.334716796875,
+        "height": 464.4779968261719
+      },
+      "mask_area": 22080,
+      "mask_shape": [
+        1024,
+        2339
+      ]
+    }
+  ],
+  "category_counts": {
+    "Mandibular Canal": 2
+  }
+}

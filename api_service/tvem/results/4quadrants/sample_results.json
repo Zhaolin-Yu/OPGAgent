@@ -1,0 +1,82 @@
+{
+  "image": "sample.jpg",
+  "timestamp": "2026-01-12T03:38:48.736036",
+  "confidence_threshold": 0.3,
+  "total_detections": 4,
+  "detections": [
+    {
+      "id": 1,
+      "category_id": 3,
+      "category_name": "Lower Right",
+      "confidence": 0.9619221091270447,
+      "bbox": {
+        "x": 460.9487609863281,
+        "y": 419.52947998046875,
+        "width": 525.1566162109375,
+        "height": 365.66455078125
+      },
+      "mask_area": 108903,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 3,
+      "category_id": 0,
+      "category_name": "Upper Left",
+      "confidence": 0.9398608207702637,
+      "bbox": {
+        "x": 952.789306640625,
+        "y": 210.93301391601562,
+        "width": 408.1737060546875,
+        "height": 338.2077331542969
+      },
+      "mask_area": 87788,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 2,
+      "category_id": 2,
+      "category_name": "Lower Left",
+      "confidence": 0.9307003617286682,
+      "bbox": {
+        "x": 962.398681640625,
+        "y": 394.00408935546875,
+        "width": 472.7239990234375,
+        "height": 381.52215576171875
+      },
+      "mask_area": 100423,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 4,
+      "category_id": 1,
+      "category_name": "Upper Right",
+      "confidence": 0.9267373085021973,
+      "bbox": {
+        "x": 525.3939208984375,
+        "y": 197.2205047607422,
+        "width": 444.28076171875,
+        "height": 352.08428955078125
+      },
+      "mask_area": 103828,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    }
+  ],
+  "category_counts": {
+    "Lower Right": 1,
+    "Upper Left": 1,
+    "Lower Left": 1,
+    "Upper Right": 1
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "image": "sample.jpg",
+  "timestamp": "2026-01-12T03:38:06.819435",
+  "confidence_threshold": 0.3,
+  "total_detections": 11,
+  "detections": [
+    {
+      "id": 10,
+      "category_id": 2,
+      "category_name": "Filling",
+      "confidence": 0.8250697255134583,
+      "bbox": {
+        "x": 665.7274169921875,
+        "y": 484.9554443359375,
+        "width": 78.44482421875,
+        "height": 52.962890625
+      },
+      "mask_area": 2057,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 1,
+      "category_id": 2,
+      "category_name": "Filling",
+      "confidence": 0.8085137009620667,
+      "bbox": {
+        "x": 1252.927001953125,
+        "y": 429.4320373535156,
+        "width": 45.5350341796875,
+        "height": 36.43475341796875
+      },
+      "mask_area": 886,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 5,
+      "category_id": 2,
+      "category_name": "Filling",
+      "confidence": 0.8080586194992065,
+      "bbox": {
+        "x": 591.12646484375,
+        "y": 451.4172668457031,
+        "width": 51.74261474609375,
+        "height": 29.87664794921875
+      },
+      "mask_area": 894,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 2,
+      "category_id": 2,
+      "category_name": "Filling",
+      "confidence": 0.7953047156333923,
+      "bbox": {
+        "x": 634.9576416015625,
+        "y": 413.24365234375,
+        "width": 63.92218017578125,
+        "height": 39.386871337890625
+      },
+      "mask_area": 1454,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 6,
+      "category_id": 2,
+      "category_name": "Filling",
+      "confidence": 0.7077527046203613,
+      "bbox": {
+        "x": 1170.3729248046875,
+        "y": 467.5625,
+        "width": 80.126220703125,
+        "height": 32.97491455078125
+      },
+      "mask_area": 1577,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 11,
+      "category_id": 2,
+      "category_name": "Filling",
+      "confidence": 0.6049515604972839,
+      "bbox": {
+        "x": 1194.8851318359375,
+        "y": 373.5623779296875,
+        "width": 72.8623046875,
+        "height": 65.1248779296875
+      },
+      "mask_area": 3112,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 3,
+      "category_id": 7,
+      "category_name": "Crown",
+      "confidence": 0.5808330178260803,
+      "bbox": {
+        "x": 1223.768310546875,
+        "y": 324.144287109375,
+        "width": 21.6798095703125,
+        "height": 51.034515380859375
+      },
+      "mask_area": 256,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 8,
+      "category_id": 7,
+      "category_name": "Crown",
+      "confidence": 0.5523597598075867,
+      "bbox": {
+        "x": 1207.38916015625,
+        "y": 303.3499450683594,
+        "width": 14.6324462890625,
+        "height": 69.45913696289062
+      },
+      "mask_area": 476,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 9,
+      "category_id": 2,
+      "category_name": "Filling",
+      "confidence": 0.4331846237182617,
+      "bbox": {
+        "x": 1154.0281982421875,
+        "y": 498.7308349609375,
+        "width": 22.3424072265625,
+        "height": 26.0206298828125
+      },
+      "mask_area": 284,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 4,
+      "category_id": 9,
+      "category_name": "Pontic",
+      "confidence": 0.41776275634765625,
+      "bbox": {
+        "x": 543.4534912109375,
+        "y": 200.389404296875,
+        "width": 109.77618408203125,
+        "height": 115.44775390625
+      },
+      "mask_area": 7321,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 7,
+      "category_id": 0,
+      "category_name": "Impacted",
+      "confidence": 0.3256678581237793,
+      "bbox": {
+        "x": 770.5105590820312,
+        "y": 532.5042724609375,
+        "width": 13.4967041015625,
+        "height": 25.8740234375
+      },
+      "mask_area": 194,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    }
+  ],
+  "category_counts": {
+    "Filling": 7,
+    "Crown": 2,
+    "Pontic": 1,
+    "Impacted": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Upper Left"
+    },
+    {
+      "id": 2,
+      "name": "Upper Right"
+    },
+    {
+      "id": 3,
+      "name": "Lower Left"
+    },
+    {
+      "id": 4,
+      "name": "Lower Right"
+    }
+  ]
+}

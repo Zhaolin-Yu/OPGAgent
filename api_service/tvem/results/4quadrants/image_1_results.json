@@ -1,0 +1,82 @@
+{
+  "image": "image_1.png",
+  "timestamp": "2026-01-21T02:58:40.639046",
+  "confidence_threshold": 0.3,
+  "total_detections": 4,
+  "detections": [
+    {
+      "id": 1,
+      "category_id": 2,
+      "category_name": "Lower Left",
+      "confidence": 0.947013258934021,
+      "bbox": {
+        "x": 1123.4239501953125,
+        "y": 305.1483459472656,
+        "width": 800.1549072265625,
+        "height": 452.7563171386719
+      },
+      "mask_area": 216278,
+      "mask_shape": [
+        1024,
+        2339
+      ]
+    },
+    {
+      "id": 3,
+      "category_id": 1,
+      "category_name": "Upper Right",
+      "confidence": 0.9396907687187195,
+      "bbox": {
+        "x": 417.5625,
+        "y": 8.086904525756836,
+        "width": 725.222900390625,
+        "height": 467.5155944824219
+      },
+      "mask_area": 257730,
+      "mask_shape": [
+        1024,
+        2339
+      ]
+    },
+    {
+      "id": 4,
+      "category_id": 0,
+      "category_name": "Upper Left",
+      "confidence": 0.937282383441925,
+      "bbox": {
+        "x": 1133.2122802734375,
+        "y": 12.562459945678711,
+        "width": 735.8602294921875,
+        "height": 458.9339904785156
+      },
+      "mask_area": 263176,
+      "mask_shape": [
+        1024,
+        2339
+      ]
+    },
+    {
+      "id": 2,
+      "category_id": 3,
+      "category_name": "Lower Right",
+      "confidence": 0.9359256029129028,
+      "bbox": {
+        "x": 361.4867248535156,
+        "y": 298.5626525878906,
+        "width": 770.974853515625,
+        "height": 475.2376403808594
+      },
+      "mask_area": 221226,
+      "mask_shape": [
+        1024,
+        2339
+      ]
+    }
+  ],
+  "category_counts": {
+    "Lower Left": 1,
+    "Upper Right": 1,
+    "Upper Left": 1,
+    "Lower Right": 1
+  }
+}

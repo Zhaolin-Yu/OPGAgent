@@ -1,0 +1,45 @@
+{
+  "image": "sample.jpg",
+  "timestamp": "2026-01-12T03:40:12.124534",
+  "confidence_threshold": 0.3,
+  "total_detections": 2,
+  "detections": [
+    {
+      "id": 1,
+      "category_id": 0,
+      "category_name": "Bone Loss",
+      "confidence": 0.3546042740345001,
+      "bbox": {
+        "x": 623.3927001953125,
+        "y": 485.463134765625,
+        "width": 645.44970703125,
+        "height": 144.74114990234375
+      },
+      "mask_area": 10149,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 2,
+      "category_id": 0,
+      "category_name": "Bone Loss",
+      "confidence": 0.33925101161003113,
+      "bbox": {
+        "x": 581.8378295898438,
+        "y": 349.3155822753906,
+        "width": 137.49951171875,
+        "height": 72.34454345703125
+      },
+      "mask_area": 1873,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    }
+  ],
+  "category_counts": {
+    "Bone Loss": 2
+  }
+}

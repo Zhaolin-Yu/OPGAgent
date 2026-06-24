@@ -1,0 +1,48 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Impacted"
+    },
+    {
+      "id": 2,
+      "name": "Caries"
+    },
+    {
+      "id": 3,
+      "name": "Filling"
+    },
+    {
+      "id": 4,
+      "name": "Periapical Lesion"
+    },
+    {
+      "id": 5,
+      "name": "Deep Caries"
+    },
+    {
+      "id": 6,
+      "name": "Residual Root"
+    },
+    {
+      "id": 7,
+      "name": "Implant"
+    },
+    {
+      "id": 8,
+      "name": "Crown"
+    },
+    {
+      "id": 9,
+      "name": "Residual Crown"
+    },
+    {
+      "id": 10,
+      "name": "Pontic"
+    },
+    {
+      "id": 11,
+      "name": "Prosthesis"
+    }
+  ]
+}

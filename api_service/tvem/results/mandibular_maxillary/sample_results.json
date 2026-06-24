@@ -1,0 +1,80 @@
+{
+  "image": "sample.jpg",
+  "timestamp": "2026-01-12T03:39:30.528486",
+  "confidence_threshold": 0.3,
+  "total_detections": 4,
+  "detections": [
+    {
+      "id": 4,
+      "category_id": 1,
+      "category_name": "Maxillary Sinus",
+      "confidence": 0.8352683782577515,
+      "bbox": {
+        "x": 1020.376953125,
+        "y": 44.63035202026367,
+        "width": 316.93798828125,
+        "height": 231.5571746826172
+      },
+      "mask_area": 56656,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 2,
+      "category_id": 0,
+      "category_name": "Mandibular Canal",
+      "confidence": 0.8211060166358948,
+      "bbox": {
+        "x": 411.1828308105469,
+        "y": 421.4904479980469,
+        "width": 318.8293151855469,
+        "height": 331.2881164550781
+      },
+      "mask_area": 10244,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 3,
+      "category_id": 1,
+      "category_name": "Maxillary Sinus",
+      "confidence": 0.685767650604248,
+      "bbox": {
+        "x": 558.9280395507812,
+        "y": 53.035545349121094,
+        "width": 313.9658203125,
+        "height": 252.01730346679688
+      },
+      "mask_area": 52265,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    },
+    {
+      "id": 1,
+      "category_id": 0,
+      "category_name": "Mandibular Canal",
+      "confidence": 0.6724541783332825,
+      "bbox": {
+        "x": 1139.759521484375,
+        "y": 331.36798095703125,
+        "width": 382.560546875,
+        "height": 426.55242919921875
+      },
+      "mask_area": 12006,
+      "mask_shape": [
+        976,
+        1976
+      ]
+    }
+  ],
+  "category_counts": {
+    "Maxillary Sinus": 2,
+    "Mandibular Canal": 2
+  }
+}

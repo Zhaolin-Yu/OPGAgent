@@ -1,0 +1,39 @@
+# --- secrets / local env (NEVER commit; .env.example is the safe template) ---
+.env
+*.env
+**/.env
+!.env.example
+!**/*.env.example
+
+# --- Python / envs ---
+__pycache__/
+*.py[cod]
+.venv/
+**/.venv/
+.uv-cache/
+.pytest_cache/
+*.egg-info/
+
+# --- runtime outputs ---
+runs/
+new_runs/
+logs/
+**/logs/
+*.log
+.runner_state.json
+api_service/*/api_results/
+
+# --- model weights fetched from HuggingFace (NOT bundled; see README) ---
+# TVEM (HF: Bryceee/Teeth_Visual_Experts_Models)
+api_service/tvem/weights/*.pth
+api_service/tvem/weights/*.pth.bak
+# MedSAM (HF: wanglab/medsam-vit-base)
+api_service/medsam/**/*.pth
+# DentalGPT / OralGPT weights are loaded via env paths / HF (never in-repo)
+
+# --- bundled YOLO weight IS tracked (via LFS) ---
+!api_service/yolo_enumeration/model/best.pt
+
+# --- misc ---
+.DS_Store
+*.tmp

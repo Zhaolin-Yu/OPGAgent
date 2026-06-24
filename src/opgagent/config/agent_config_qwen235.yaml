@@ -1,0 +1,32 @@
+# Agent_v3 配置文件 - Qwen3-VL-235B-A22B-Thinking 主模型（Answer 模式 / 评测用）
+# 使用方式: --config src/opgagent/config/agent_config_qwen235.yaml
+# OpenRouter：设置 OPENROUTER_API_KEY；DashScope：改为 provider: qwen, model: qwen3-vl-235b-a22b-thinking，设置 DASHSCOPE_API_KEY
+
+# ====================
+# LLM 配置
+# ====================
+llm:
+  provider: openrouter
+  model: qwen/qwen3-vl-235b-a22b-thinking
+  temperature: 0.1
+  max_tokens: 65536
+
+# ====================
+# ReAct 配置
+# ====================
+react:
+  max_iterations: 15
+  stop_on_error: false
+
+# ====================
+# 工具配置
+# ====================
+tools:
+  config_path: "src/opgagent/config/tools_config.yaml"
+
+# ====================
+# Memory 配置
+# ====================
+memory:
+  enable_cache: true
+  cache_ttl: 3600

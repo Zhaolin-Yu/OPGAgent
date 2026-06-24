@@ -1,0 +1,194 @@
+{
+  "tools": [
+    {
+      "name": "detect_tooth_enumeration",
+      "description": "检测牙齿枚举，识别全景X光片中的8种牙齿类型（标记为1-8）",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image_path": {
+            "type": "string",
+            "description": "牙科X光图像文件路径（支持jpg、png等格式）"
+          },
+          "api_url": {
+            "type": "string",
+            "description": "API服务地址（默认: http://localhost:8001）",
+            "default": "http://localhost:8001"
+          },
+          "conf_threshold": {
+            "type": "number",
+            "description": "置信度阈值，范围0-1（默认: 0.25）",
+            "default": 0.25,
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": ["image_path"]
+      },
+      "outputSchema": {
+        "type": "string",
+        "description": "格式化的检测结果文本，包含每个检测到的牙齿的类型、位置和置信度"
+      }
+    },
+    {
+      "name": "get_tooth_enumeration_summary",
+      "description": "获取牙齿枚举检测的统计摘要，包括检测到的牙齿总数和各类型牙齿的数量统计",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image_path": {
+            "type": "string",
+            "description": "牙科X光图像文件路径"
+          },
+          "api_url": {
+            "type": "string",
+            "description": "API服务地址（默认: http://localhost:8001）",
+            "default": "http://localhost:8001"
+          }
+        },
+        "required": ["image_path"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "检测是否成功"
+          },
+          "total_teeth": {
+            "type": "integer",
+            "description": "检测到的牙齿总数"
+          },
+          "tooth_count_by_type": {
+            "type": "object",
+            "description": "各类型牙齿的数量统计",
+            "additionalProperties": {
+              "type": "integer"
+            }
+          },
+          "num_detections": {
+            "type": "integer",
+            "description": "检测框总数"
+          },
+          "error": {
+            "type": "string",
+            "description": "错误信息（仅在失败时返回）"
+          }
+        },
+        "required": ["success"]
+      }
+    }
+  ],
+  "metadata": {
+    "name": "tooth-enumeration-detection",
+    "version": "1.0.0",
+    "description": "牙齿枚举检测工具集 - 使用YOLOv9c模型识别全景X光片中的8种牙齿类型",
+    "author": "DENTEX Tooth Enumeration Detection System",
+    "license": "MIT",
+    "tags": [
+      "dental",
+      "tooth-enumeration",
+      "object-detection",
+      "yolov9",
+      "medical-imaging"
+    ],
+    "model_info": {
+      "architecture": "YOLOv9c",
+      "classes": 8,
+      "class_names": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "input_size": "640x640",
+      "framework": "Ultralytics YOLO"
+    },
+    "api_endpoints": {
+      "base_url": "http://localhost:8001",
+      "endpoints": [
+        {
+          "path": "/detect",
+          "method": "POST",
+          "description": "上传图像文件进行检测"
+        },
+        {
+          "path": "/detect_base64",
+          "method": "POST",
+          "description": "使用Base64编码图像进行检测"
+        },
+        {
+          "path": "/health",
+          "method": "GET",
+          "description": "健康检查"
+        },
+        {
+          "path": "/model/info",
+          "method": "GET",
+          "description": "获取模型信息"
+        }
+      ]
+    },
+    "usage_examples": [
+      {
+        "title": "基础检测",
+        "code": "detect_tooth_enumeration(image_path='xray.png')"
+      },
+      {
+        "title": "自定义置信度阈值",
+        "code": "detect_tooth_enumeration(image_path='xray.png', conf_threshold=0.3)"
+      },
+      {
+        "title": "获取统计摘要",
+        "code": "get_tooth_enumeration_summary(image_path='xray.png')"
+      },
+      {
+        "title": "使用自定义API地址",
+        "code": "detect_tooth_enumeration(image_path='xray.png', api_url='http://192.168.1.100:8001')"
+      }
+    ],
+    "requirements": {
+      "python": ">=3.8",
+      "packages": [
+        "fastapi>=0.100.0",
+        "uvicorn>=0.22.0",
+        "ultralytics>=8.0.0",
+        "opencv-python>=4.8.0",
+        "pillow>=10.0.0",
+        "numpy>=1.24.0",
+        "requests>=2.31.0"
+      ]
+    },
+    "deployment": {
+      "local": {
+        "description": "本地预测（无需API服务）",
+        "command": "python predict.py --image xray.png"
+      },
+      "api_server": {
+        "description": "启动API服务",
+        "command": "bash start_api.sh",
+        "port": 8001
+      },
+      "docker": {
+        "description": "Docker部署（待实现）",
+        "status": "planned"
+      }
+    },
+    "performance": {
+      "dataset": {
+        "name": "DENTEX Tooth Enumeration",
+        "images": 634,
+        "annotations": 18095,
+        "train_split": "85%",
+        "val_split": "15%"
+      },
+      "metrics": {
+        "note": "实际指标取决于训练结果，请查看训练日志"
+      }
+    }
+  }
+}

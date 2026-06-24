@@ -1,0 +1,12 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mandibular Canal"
+    },
+    {
+      "id": 2,
+      "name": "Maxillary Sinus"
+    }
+  ]
+}

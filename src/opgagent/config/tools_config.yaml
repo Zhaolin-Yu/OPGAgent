@@ -1,0 +1,285 @@
+default_settings:
+  timeout: 30
+  retry_count: 3
+  retry_delay: 1
+tools:
+  # yolo_quadrant 已弃用 - 改用 TVEM/4quadrants 进行象限检测
+  # yolo_quadrant:
+  #   name: YOLO 象限分割
+  #   description: 使用 YOLO 模型对口腔全景片进行四象限分割检测
+  #   service:
+  #     host: localhost
+  #     port: 8001
+  #     base_url: http://localhost:8001
+  #     env_type: uv
+  #   endpoints:
+  #     predict: /predict
+  #     health: /health
+  #     load_model: /load_model
+  #     unload_model: /unload_model
+  #   startup_script: tools/yolo_quadrant/start_api.sh
+  #   gpu:
+  #     device: 0
+  #     memory_estimate: 2GB
+  #   features:
+  #     supports_unload: true
+  #     supports_batch: false
+  #   input:
+  #     type: image
+  #     formats:
+  #     - jpg
+  #     - jpeg
+  #     - png
+  #   output:
+  #     type: json
+  #     schema:
+  #       boxes: list[dict]
+  #       image_path: str
+  yolo_enumeration:
+    name: YOLO 牙齿编号
+    description: 使用 YOLO 模型对口腔全景片中的牙齿进行编号识别
+    service:
+      host: localhost
+      port: 8002
+      base_url: http://localhost:8002
+      env_type: uv
+    endpoints:
+      predict: /predict
+      health: /health
+      load_model: /load_model
+      unload_model: /unload_model
+    startup_script: tools/yolo_enumeration/start_api.sh
+    gpu:
+      device: 0
+      memory_estimate: 2GB
+    features:
+      supports_unload: true
+      supports_batch: false
+    input:
+      type: image
+      formats:
+      - jpg
+      - jpeg
+      - png
+    output:
+      type: json
+      schema:
+        boxes: list[dict]
+  tvem:
+    name: TVEM MaskDINO 检测
+    description: 使用 MaskDINO 模型进行高精度牙科图像分割检测，支持多种检测任务
+    service:
+      host: localhost
+      port: 8003
+      base_url: http://localhost:8003
+      env_type: uv
+    endpoints:
+      health: /health
+      models: /models
+      detect: /detect/{model}
+      load_model: /load/{model}
+      unload_model: /unload/{model}
+      unload_all: /unload_all
+    startup_script: tools/TVEM/start_api.sh
+    gpu:
+      device: 1
+      memory_estimate: 8-10GB per model
+    features:
+      supports_unload: true
+      supports_batch: false
+      multi_model: true
+    available_models:
+      4quadrants:
+        description: 四象限分割 - 检测左上、右上、左下、右下象限
+        categories:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+      11diseases:
+        description: 11种疾病检测 - 龋齿、种植体、残冠等
+        categories:
+        - Caries
+        - Crown
+        - Filling
+        - Implant
+        - Malaligned
+        - Mandibular Canal
+        - Missing teeth
+        - Periapical lesion
+        - Residual Crown
+        - Retained root
+        - maxillary sinus
+      bone_loss:
+        description: 骨质流失检测
+        categories:
+        - Bone Loss
+      mandibular_maxillary:
+        description: 下颌管和上颌窦检测
+        categories:
+        - Mandibular Canal
+        - maxillary sinus
+    input:
+      type: image
+      formats:
+      - jpg
+      - jpeg
+      - png
+    output:
+      type: json
+      schema:
+        model: str
+        detections: list[dict]
+        num_detections: int
+        image_size: '[width, height]'
+  oral_gpt:
+    name: OralGPT-Omni 分析
+    description: 多模态牙科诊断模型
+    service:
+      host: localhost
+      port: 8664
+      base_url: http://localhost:8664
+      env_type: uv
+      load_balancing:
+        enabled: true
+        strategy: round_robin
+        endpoints:
+        - http://localhost:8664
+        - http://localhost:8665
+        - http://localhost:8666
+        - http://localhost:8667
+    endpoints:
+      analyze: /analyze
+      health: /health
+    startup_script: tools/OralGPT-omni/start_api.sh
+    gpu:
+      device: 4
+      memory_estimate: 10-12GB
+      memory_per_replica: 12000
+    replicas:
+      enabled: true
+      count: 4
+      port_start: 8664
+      port_end: 8667
+    features:
+      supports_unload: true
+      supports_batch: false
+    timeout: 90
+    input:
+      type: image
+      formats:
+      - jpg
+      - jpeg
+      - png
+      additional_params:
+        prompt: str
+    output:
+      type: json
+      schema:
+        analysis: str
+  dental_gpt:
+    name: DentalGPT 分析
+    description: 专业牙科 VLM 分析模型，提供详细诊断建议
+    service:
+      host: localhost
+      port: 8566
+      base_url: http://localhost:8566
+      env_type: uv
+      load_balancing:
+        enabled: true
+        strategy: round_robin
+        endpoints:
+        - http://localhost:8566
+        - http://localhost:8567
+        - http://localhost:8568
+        - http://localhost:8569
+    endpoints:
+      analyze: /analyze
+      health: /health
+      load_model: /load_model
+      unload_model: /unload_model
+    startup_script: tools/dentalGPT/start_server.sh
+    gpu:
+      device: 0
+      memory_estimate: 15-17GB
+      memory_per_replica: 17000
+    replicas:
+      enabled: true
+      count: 4
+      port_start: 8566
+      port_end: 8569
+    features:
+      supports_unload: true
+      supports_batch: false
+    timeout: 90
+    input:
+      type: image
+      formats:
+      - jpg
+      - jpeg
+      - png
+      additional_params:
+        question: str
+    output:
+      type: json
+      schema:
+        analysis: str
+        diagnosis: list[dict]
+  medsam:
+    name: MedSAM 分割
+    description: 使用 MedSAM 对指定 bbox 内的目标进行精确分割
+    service:
+      host: localhost
+      port: 8008
+      base_url: http://localhost:8008
+      env_type: uv
+    endpoints:
+      segment: /segment
+      health: /health
+    startup_script: tools/MedSAM/start_api.sh
+    gpu:
+      device: 0
+      memory_estimate: 4GB
+    features:
+      supports_unload: true
+      supports_batch: false
+    input:
+      type: image
+      formats:
+      - jpg
+      - jpeg
+      - png
+      additional_params:
+        bbox: str  # 逗号分隔的 x1,y1,x2,y2
+    output:
+      type: json
+      schema:
+        success: bool
+        mask_contour: list[list[int]]
+gpu_allocation:
+  gpu_0:
+    description: 主 GPU - 用于 YOLO 模型和 VLM
+    services:
+    - yolo_quadrant
+    - yolo_enumeration
+    - oral_gpt
+    - dental_gpt
+    total_memory: 40GB
+  gpu_1:
+    description: 辅助 GPU - 专用于 TVEM MaskDINO
+    services:
+    - tvem
+    total_memory: 40GB
+startup_priority:
+  yolo_quadrant: 1
+  yolo_enumeration: 2
+  tvem: 4
+  oral_gpt: 5
+  dental_gpt: 6
+conflicts:
+- group: vlm_services
+  description: VLM 服务共享同一 conda 环境，不能同时启动
+  services:
+  - oral_gpt
+  - dental_gpt
+  resolution: unload_first

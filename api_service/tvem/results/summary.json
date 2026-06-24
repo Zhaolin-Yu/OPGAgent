@@ -1,0 +1,27 @@
+{
+  "11diseases": {
+    "total_detections": 0,
+    "category_counts": {}
+  },
+  "4quadrants": {
+    "total_detections": 4,
+    "category_counts": {
+      "Lower Left": 1,
+      "Upper Right": 1,
+      "Upper Left": 1,
+      "Lower Right": 1
+    }
+  },
+  "bone_loss": {
+    "total_detections": 2,
+    "category_counts": {
+      "Bone Loss": 2
+    }
+  },
+  "mandibular_maxillary": {
+    "total_detections": 2,
+    "category_counts": {
+      "Mandibular Canal": 2
+    }
+  }
+}
